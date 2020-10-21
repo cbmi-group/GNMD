@@ -31,9 +31,9 @@
    - Put P2P-NM results *edge_random_masks_latest/* into *Data_process_matlab/* 
    - Run `get_global_noise_s2.m` to output global_noise
    - Prepare 1080 masks
-   - Run `make_denoise_training_s3.m` to output dataset *denoise_train_1080/* to train P2P-DN
+   - Run `make_denoise_training_s3.m` to build dataset *denoise_train_1080* to train P2P-DN
  ### 3. P2P-DN train/test
-   - Put dataset *denoise_train_1080/* into P2P-DN/datasets/
+   - Put dataset *denoise_train_1080* into P2P-DN/datasets/
    - Train a model
    
     python train.py --batch_size 1 --model pix2pix --direction BtoA --dataroot ./datasets/ --phase denoise_train_1080 --name trained_on_1080 --niter 100 --niter_decay 100

@@ -29,7 +29,16 @@
  ### 2. Build data for training P2P-DN
    - Put P2P-NM results *edge_random_masks_latest/* into *Data_process_matlab/* 
    - Run *get_global_noise_s2.m* to output global_noise
-   - 
+   - Prepare 1080 masks to simulate clean targets
+   - Run *make_denoise_training_s3.m* to output training dataset *denoise_train_1080/*
  ### 3. P2P-DN train/test
+   - Put dataset *denoise_train_1080/* into P2P-DN/datasets/
+   - Train a model
    
+    python train.py --batch_size 1 --model pix2pix --direction BtoA --dataroot ./datasets/ --phase denoise_train_1080 --name trained_on_1080 --niter 100 --niter_decay 100 --gpu_ids 1
+   Weights will be saved to P2P-DN/checkpoints/trained_on_1080  
+   - Test the model using real fluorescence microscopy images
    
+    python test.py --model pix2pix --direction BtoA --num_test 99999 --dataroot ./datasets/ --phase mito_real_156 --name trained_on_1080
+   - Results will be saved to P2P-DN/results/trained_on_1080/
+  

@@ -17,7 +17,7 @@
   
     python train.py --batch_size 1 --model pix2pix --direction BtoA --dataroot ./datasets/ --phase mask_mito_1080 --name trained_on_1080 --niter 500 --niter_decay 500   
    
-   More options are list in *options/base_options.py* and *train_options.py*.  
+   More options are list in `options/base_options.py` and `train_options.py`.  
    Model weights will be saved to *P2P-NM/checkpoints/trained_on_1080* 
    - Run `Data_process_matlab/make_random_mask_s1.m` to generate test dataset named *edge_random_masks*
    - Test the model using *edge_random_masks*
@@ -29,8 +29,8 @@
  ### 2. Build data for training P2P-DN
    - Put P2P-NM results *edge_random_masks_latest/* into *Data_process_matlab/* 
    - Run `get_global_noise_s2.m` to output global_noise
-   - Prepare 1080 masks to simulate clean targets
-   - Run `make_denoise_training_s3.m` to output training dataset *denoise_train_1080/*
+   - Prepare 1080 masks
+   - Run `make_denoise_training_s3.m` to output dataset *denoise_train_1080/* to train P2P-DN
  ### 3. P2P-DN train/test
    - Put dataset *denoise_train_1080/* into P2P-DN/datasets/
    - Train a model

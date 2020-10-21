@@ -17,7 +17,7 @@
   
     python train.py --batch_size 1 --model pix2pix --direction BtoA --dataroot ./datasets/ --phase mask_mito_1080 --name trained_on_1080 --niter 500 --niter_decay 500   
    
-   More options are list in `options/base_options.py` and `train_options.py` 
+   More options are list in `options/base_options.py` and `train_options.py`  
    Model weights will be saved to *P2P-NM/checkpoints/trained_on_1080* 
    - Run `Data_process_matlab/make_random_mask_s1.m` to generate test dataset named *edge_random_masks*
    - Test the model using *edge_random_masks*
